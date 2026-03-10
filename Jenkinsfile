@@ -31,7 +31,11 @@ pipeline{
         stage("Push to Docker Hub"){
         steps{
             script{
-                push("dockerHubCred","notes-app","latest")
+                push(
+                credentialsId: 'dockerHubCred',
+                imageName: 'notes-app',
+                imageTag: 'latest'
+            )
             }
                 }
             }
